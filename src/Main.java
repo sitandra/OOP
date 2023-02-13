@@ -1,4 +1,5 @@
 import Cars.Car;
+import VendingMachine.VendingMachine;
 
 import java.util.List;
 import java.util.TreeMap;
@@ -6,6 +7,8 @@ import java.util.TreeMap;
 public class Main {
     public static void main(String[] args) {
         lesson1();
+        System.out.println();
+        lesson2();
     }
 
     private static void lesson1() {
@@ -21,6 +24,22 @@ public class Main {
             i++;
             System.out.println("Место №" + i + " отдано " + item.getValue());
             System.out.printf("Результат %.5g ч\n", item.getKey());
+        }
+    }
+
+    private static void lesson2() {
+        VendingMachine vm = new VendingMachine(20);
+        try {
+            vm.add("Lays", 50, 5).add("BonAqua", 100, 10).add("Mars", 20, 5);
+            System.out.println(vm.getProductByName("BonAqua"));
+            System.out.println(vm.contains());
+            System.out.println("Lays " + vm.getProductByName("Lays", 10));
+            System.out.println(vm.contains());
+            System.out.println(vm.getProductByName("Lays"));
+            System.out.println(vm.getProductByName("Lays", 10));
+            System.out.println(vm.contains());
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 }
