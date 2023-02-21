@@ -1,4 +1,5 @@
 import Cars.Car;
+import Chess.ChessSquare;
 import VendingMachine.VendingMachine;
 
 import java.util.List;
@@ -6,9 +7,10 @@ import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) {
-        lesson1();
-        System.out.println();
-        lesson2();
+        //lesson1();
+        //System.out.println();
+        //lesson2();
+        lesson3();
     }
 
     private static void lesson1() {
@@ -41,5 +43,13 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+    }
+
+    private static void lesson3() {
+        ChessSquare square = new ChessSquare();
+        System.out.println(square);
+        System.out.println("Фигура из клетки a2 может пойти в " + square.availableMoves("a2"));
+        System.out.println("Фигура из клетки a2 может пойти в " + square.availableMoves("a3"));
+        System.out.println("Фигура из клетки a2 может пойти в " + square.availableMoves("b2"));
     }
 }
