@@ -1,7 +1,9 @@
 import Cars.Car;
 import Chess.ChessSquare;
+import Planner.*;
 import VendingMachine.VendingMachine;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.TreeMap;
 
@@ -10,7 +12,8 @@ public class Main {
         //lesson1();
         //System.out.println();
         //lesson2();
-        lesson3();
+        //lesson3();
+        lesson4();
     }
 
     private static void lesson1() {
@@ -51,5 +54,28 @@ public class Main {
         System.out.println("Фигура из клетки a2 может пойти в " + square.availableMoves("a2"));
         System.out.println("Фигура из клетки a2 может пойти в " + square.availableMoves("a3"));
         System.out.println("Фигура из клетки a2 может пойти в " + square.availableMoves("b2"));
+    }
+
+    /**
+     * Спроектировать и реализовать планировщик дел для работы с задачами разных приоритетов.
+     *
+     * Например:
+     * Должен быть класс Задачи (общий/родительский и подтипы)
+     * У задачи должно быть длительность, дедлайн, приоритет, тема, ответсвенный... - параметры на Ваше усмотрение
+     * **У задачи должна быть возможность включить или выключить нотификацию на разные события, например, приближение дедлайна.
+     *
+     * Должен быть класс Календарь, в который можно добавлять Задачи.
+     * *** При пересечении задач по времени - выводить сообщение пользователю.
+     *
+     * **** Должна быть возможность выгрузки Календаря в файл (тип на Ваше усмотрение)
+     * **** Файл должен содержать следующие данные: id, дату добавления записи, время добавления записи, дедлай задачи, ФИО автора и др
+     */
+    private static void lesson4() {
+        MyCalendar<Milestone> calendar = new MyCalendar<>();
+        calendar.add(new Reminder(new Timestamp(System.currentTimeMillis()+ 40000L), "Поужинать"));
+        calendar.add((new Meet(new Timestamp(System.currentTimeMillis()+ 200000L), "Йога", 3600)).notificationOff());
+        calendar.add(new Task(new Timestamp(System.currentTimeMillis() + 200000L), "Выполнить д/з", new Timestamp(System.currentTimeMillis() + 600000L)));
+        System.out.println(calendar);
+        calendar.export("files/calendar.txt");
     }
 }
