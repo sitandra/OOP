@@ -1,10 +1,10 @@
-package PatientBook.Server.Shapes;
+package PatientBook.Server.Models;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PatientBook {
-    private List<Patient> patients;
+    private final List<Patient> patients;
 
     public PatientBook() {
         this.patients = new ArrayList<>();

@@ -1,4 +1,4 @@
-package PatientBook.Server.Shapes;
+package PatientBook.Server.Models;
 
 import java.util.Date;
 import java.util.Objects;

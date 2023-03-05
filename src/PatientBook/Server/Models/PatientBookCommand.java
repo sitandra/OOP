@@ -1,18 +1,19 @@
-package PatientBook.Server;
+package PatientBook.Server.Models;
 
-public enum PatientBookCommands {
+public enum PatientBookCommand {
     SHOW ("show", "Показать книгу"),
     ADD ("add","Добавить пациента"),
     REMOVE ("remove", "Удалить пациента"),
     SORT ("sort", "Сортировать книгу"),
     SAVE ("save", "Сохранить книгу"),
-    HELP("help", "Показать команды"),
+    HELP ("help", "Показать команды"),
+    UNKNOWN ("", "Неизвестная команда"),
     EXIT ("exit", "Выйти из программы");
 
     private final String code;
     private final String title;
 
-    PatientBookCommands(String code, String title) {
+    PatientBookCommand(String code, String title) {
         this.code = code;
         this.title = title;
     }
@@ -25,8 +26,9 @@ public enum PatientBookCommands {
     public static String help() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n");
-        for (PatientBookCommands command : PatientBookCommands.values()) {
-            sb.append("\t *\t").append(command.toString()).append("\n");
+        for (PatientBookCommand command : PatientBookCommand.values()) {
+            if (command != PatientBookCommand.UNKNOWN)
+                sb.append("\t *\t").append(command.toString()).append("\n");
         }
         return sb.toString();
     }
