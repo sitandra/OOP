@@ -1,6 +1,8 @@
 package Algorithms;
 
 import Algorithms.homework2.HeapSort;
+import Algorithms.homework3.List;
+import Algorithms.homework3.SinglyLinkedList;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -8,7 +10,28 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
-        homework2();
+        homework3();
+    }
+
+    private static void homework3(){
+        SinglyLinkedList sll = new SinglyLinkedList();
+        sll.add(1);
+        sll.add(2);
+        sll.add(3);
+        sll.add(4);
+        sll.add(5);
+        System.out.println(sll);
+        sll.revert();
+        System.out.println(sll);
+        List list = new List();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(5);
+        System.out.println(list);
+        list.revert();
+        System.out.println(list);
     }
 
     private static void homework2() {
