@@ -3,6 +3,7 @@ package Algorithms;
 import Algorithms.homework2.HeapSort;
 import Algorithms.homework3.List;
 import Algorithms.homework3.SinglyLinkedList;
+import Algorithms.homework4.LeftSideRedBlackTree;
 
 import java.util.Arrays;
 import java.util.Random;
@@ -10,9 +11,24 @@ import java.util.Random;
 public class Main {
 
     public static void main(String[] args) {
+        //homework2();
         homework3();
+        homework4();
     }
 
+    private static void homework4(){
+        Random rand = new Random();
+        int min = 10, max = 99, rnd;
+        LeftSideRedBlackTree tree = new LeftSideRedBlackTree();
+        for (int i = 0; i < 30; i++) {
+            rnd = rand.nextInt(max - min + 1) + min;
+            System.out.print("Шаг " + (i+1) + ": " + rnd + " \n");
+            tree.put(rnd);
+            System.out.println(tree);
+        }
+        System.out.println("Конечное красно-черное дерево:");
+        System.out.println(tree);
+    }
     private static void homework3(){
         SinglyLinkedList sll = new SinglyLinkedList();
         sll.add(1);
