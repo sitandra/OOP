@@ -24,7 +24,7 @@ public class Notebook {
         try (FileWriter fileWriter = new FileWriter(line.getFileName(), true)) {
             fileWriter.write(line + "\n");
             System.out.println("Произведена запись в файл: " + line);
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("\u001B[31m" + e.getMessage() + "\u001B[0m\n" + Arrays.toString(e.getStackTrace()));
         }
     }
